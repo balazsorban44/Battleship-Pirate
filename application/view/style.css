@@ -1,0 +1,41 @@
+#h-box, #split-pane{
+	-fx-background: #292929;
+	-fx-border-color: #292929
+}
+.split-pane-divider{
+	-fx-color: #404040;
+	-fx-padding: 2;
+}
+
+#board, #easter-egg{-fx-font-size: 20px}
+
+#board, #console{
+	-fx-font-family: monospace;
+	-fx-control-inner-background: #404040;
+	-fx-text-fill: #f57900
+}
+#board{
+	-fx-text-fill: #65cd9d
+}
+
+#board *.text {
+    -fx-text-alignment: center;
+    -fx-vertical-align: center
+}
+#input,#button{
+	-fx-font-size: 14px;
+	-fx-background-color:#404040;
+	-fx-border-color: transparent
+}
+#button:hover{
+	-fx-background-color: #666666;
+	-fx-cursor: hand;
+	-fx-text-fill: #a7ec21
+}
+#input, #easter-egg{
+	-fx-text-fill: #dd2867;
+	-fx-font-weight: bold
+}
+#button{-fx-text-fill:#20b540}
+
+#author{-fx-text-fill:  #a7ec21}

@@ -2,8 +2,8 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>C:\Users\bazsi44-DELL\Desktop\Battleship-v1.1_Balazs_Orban.jar</jar>
-  <outfile>C:\Users\bazsi44-DELL\Desktop\Battleship-v1.1.exe</outfile>
+  <jar>../dist/Battleship.jar</jar>
+  <outfile>..dist/Battleship.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
@@ -13,9 +13,9 @@
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
-  <icon>C:\Users\bazsi44-DELL\Desktop\ship.ico</icon>
+  <icon>./assets/.ico</icon>
   <classPath>
-    <mainClass>battleship.Main</mainClass>
+    <mainClass>application.Main</mainClass>
     <cp>battleship</cp>
   </classPath>
   <jre>
@@ -37,7 +37,7 @@
     <productName>Battleship Pirate ☠</productName>
     <companyName>Balázs Orbán</companyName>
     <internalName>Battleship Pirate ☠</internalName>
-    <originalFilename>Battleship-v1.1.exe</originalFilename>
+    <originalFilename>Battleship.exe</originalFilename>
     <trademarks></trademarks>
     <language>ENGLISH_US</language>
   </versionInfo>
