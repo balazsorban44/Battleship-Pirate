@@ -2,8 +2,8 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>../dist/Battleship.jar</jar>
-  <outfile>..dist/Battleship.exe</outfile>
+  <jar>/home/balazs/Documents/github/battleship-pirate/bin/Battleship.jar</jar>
+  <outfile>/home/balazs/Documents/github/battleship-pirate/bin/Battleship.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
@@ -13,7 +13,7 @@
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
-  <icon>./assets/.ico</icon>
+  <icon>/home/balazs/Documents/github/battleship-pirate/src/view/icon.ico</icon>
   <classPath>
     <mainClass>application.Main</mainClass>
     <cp>battleship</cp>
