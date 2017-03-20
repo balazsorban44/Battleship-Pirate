@@ -7,23 +7,18 @@
 	-fx-padding: 2;
 }
 
-#board, #easter-egg{-fx-font-size: 20px}
+#board, #easter-egg{-fx-font-size: 20.7px}
 
 #board, #console{
 	-fx-font-family: monospace;
 	-fx-control-inner-background: #404040;
-	-fx-text-fill: #f57900
 }
-#board{
-	-fx-text-fill: #65cd9d
-}
+#console{-fx-text-fill: #f57900}
+#board{-fx-text-fill: #1490c3}
 
-#board *.text {
-    -fx-text-alignment: center;
-    -fx-vertical-align: center
-}
+#board *.text, #console *.text {-fx-text-alignment: center}
 #input,#button{
-	-fx-font-size: 14px;
+	-fx-font-size: 16px;
 	-fx-background-color:#404040;
 	-fx-border-color: transparent
 }
@@ -34,8 +29,13 @@
 }
 #input, #easter-egg{
 	-fx-text-fill: #dd2867;
+	-fx-prompt-text-fill: rgba(255,255,255,.15);
 	-fx-font-weight: bold
 }
 #button{-fx-text-fill:#20b540}
 
-#author{-fx-text-fill:  #a7ec21}
+#title{
+	-fx-text-fill:  #a7ec21;
+	-fx-font-size: 20px
+}
+#email,#version,#author{-fx-text-fill: #ffbf27}

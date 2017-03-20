@@ -4,72 +4,117 @@ import java.util.ArrayList;
 
 public class BattleshipBoard {
 
-	private int rowCount, colCount, hitCounter = 0;
+	private int size, hitCounter = 0;
 	private String msg, by, cellStatus;
+	private ArrayList<String> state = new ArrayList<>();
 	private boolean nextTurn = true, isE = false;
 	private ArrayList<ArrayList<BoardCell>> cells;
-
-	public BattleshipBoard(int row, int col, String init) {
-		this.rowCount = row;
-		this.colCount = col;
+	private ArrayList<Ship> ships = new ArrayList<>();
+	
+	public BattleshipBoard(int size, String state, String shipTypes,String shipsString) {
 		EasterEgg e = new EasterEgg();
 		by = e.by();
 		msg = e.msg();
+		this.size = size;
+		int i,j;
+		
+		//Initial state of the board
+		for (i = 0; i < size; i++) {
+			this.state.add(state.substring(i*10, i*10+10));
+		}
+		//Ships on the board
+		for (i = 0; i < shipsString.split(",").length; i++) {
+			ships.add(new Ship(shipTypes.split(",")[i], shipsString.split(",")[i]));
+		}
+		//Initializing board.
 		cells = new ArrayList<ArrayList<BoardCell>>();
-		for (int i = 1; i <= rowCount; i++) {
+		for (i = 0; i < size; i++) {
 			cells.add(new ArrayList<BoardCell>());
-			for (int j = 1; j <= colCount; j++) {
-				BoardCell cell = new BoardCell();
-				if (init.substring((i - 1) * 10, (i - 1) * 10 + 10).substring(j - 1).charAt(0) == 'X') {
-					cell.setIsShip();
+			for (j = 0; j < size; j++) {
+				cells.get(i).add(new BoardCell());
+			}
+		}
+		
+		//Placing ships on the board.
+		for (Ship ship : ships) {
+			int shipX = ship.getX()-1,
+				shipY = ship.getY()-1;
+
+			for (i = shipY; i < shipY + ship.getShipType().getHeight(); i++) {
+				for (j = shipX; j < shipX + ship.getShipType().getWidth(); j++) {					
+					cells.get(i).get(j).setIsShip();
 				}
-				cells.get(i - 1).add(cell);
+			}
+		}
+		
+		//Setting state of the cells.
+		for (i = 0; i < size; i++) {
+			for (j = 0; j < size; j++) {
+				if (this.state.get(i).charAt(j) != '.') {
+					if (cells.get(i).get(j).getIsShip()) {
+						setHitCounter();
+						cells.get(i).get(j).setCellValue('☠');
+					}
+					else {
+						cells.get(i).get(j).setCellValue('○');
+					}
+				}
 			}
 		}
 	}
 
-	public boolean getIsE() {
+	public String getState() {
+		String result = "";
+		for (ArrayList<BoardCell> row : cells) {
+			for (BoardCell cell : row) {
+				result+= cell.getCellValue() == '~' ? "." : "X";
+			}
+		}
+		return result;
+	}
+
+
+	boolean getIsE() {
 		return this.isE;
 	}
 
-	public void setIsE() {
+	void setIsE() {
 		this.isE = true;
 	}
 
-	public String getMsg() {
+	String getMsg() {
 		return this.msg;
 	}
 
-	public String getCellStatus() {
+	String getCellStatus() {
 		return cellStatus;
 	}
 
-	public void setCellStatus(String cellStatus) {
+	void setCellStatus(String cellStatus) {
 		this.cellStatus = cellStatus;
 	}
 
-	public void setNextTurn(boolean nextTurn) {
+	void setNextTurn(boolean nextTurn) {
 		this.nextTurn = nextTurn;
 	}
 
-	public boolean getNextTurn() {
+	boolean getNextTurn() {
 		return this.nextTurn;
 	}
 
-	public int getHitCounter() {
+	int getHitCounter() {
 		return hitCounter;
 	}
 
-	public void setHitCounter() {
+	void setHitCounter() {
 		this.hitCounter += 1;
 	}
-
-	public void getInput(String c) {
+	void getInput(String c) {
 		int x, y;
 		if (!c.equals(by)) {
 			x = Integer.parseInt((c.substring(0, c.indexOf(','))));
 			y = Integer.parseInt((c.substring(c.indexOf(',') + 1)));
-			if (x >= 1 && x <= rowCount && y >= 1 && y <= colCount) {
+			if (x >= 1 && x <= size && y >= 1 && y <= size) {
 
 				if (cells.get(x - 1).get(y - 1).getCellValue() == '~') {
 					if (cells.get(x - 1).get(y - 1).getIsShip()) {
@@ -92,8 +137,8 @@ public class BattleshipBoard {
 			}
 
 		} else {
-			for (int i = 0; i < rowCount; i++) {
-				for (int j = 0; j < colCount; j++) {
+			for (int i = 0; i < size; i++) {
+				for (int j = 0; j < size; j++) {
 					if (cells.get(i).get(j).getIsShip()) {
 						cells.get(i).get(j).setCellValue('☠');
 						setHitCounter();
@@ -108,14 +153,20 @@ public class BattleshipBoard {
 	}
 
 	public String toString() {
-		String boardString = "\n";
+		String boardString = "";
 		for (ArrayList<BoardCell> row : cells) {
-			boardString += "|";
+			
 			for (BoardCell c : row) {
-				boardString += " " + c.getCellValue();
+				if (boardString.length() % 10 == 0) {
+					boardString += c.getCellValue();
+				}
+				else{
+					boardString += " " + c.getCellValue();
+				}
 			}
-			boardString += "|\n";
+			boardString += "\n";
 		}
+		boardString = "\n" + boardString;
 		return boardString.substring(0, boardString.length() - 1);
 	}
 }

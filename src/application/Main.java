@@ -17,7 +17,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
-			primaryStage.setTitle("Battleship Pirate ☠ v1.1 by Balázs Orbán NTNU - 2017");
+			primaryStage.setTitle("Battleship Pirate ☠ v2.0 by Balázs Orbán NTNU - 2017");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

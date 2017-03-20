@@ -2,7 +2,7 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>/home/balazs/Documents/github/battleship-pirate/bin/Battleship.jar</jar>
+  <jar>/home/balazs/Documents/github/NTNU/2017/Spring/TDT4100/Battleship/Battleship-v2.0_Balazs_Orban.jar</jar>
   <outfile>/home/balazs/Documents/github/battleship-pirate/bin/Battleship.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
@@ -28,12 +28,12 @@
     <runtimeBits>64/32</runtimeBits>
   </jre>
   <versionInfo>
-    <fileVersion>1.1.0.0</fileVersion>
-    <txtFileVersion>v1.1</txtFileVersion>
+    <fileVersion>2.0.0.0</fileVersion>
+    <txtFileVersion>v2.0</txtFileVersion>
     <fileDescription>This is a little java game I made as a school project.</fileDescription>
     <copyright>© Balázs Orbán (info@balazsorban.com) - 2017</copyright>
-    <productVersion>1.1.0.0</productVersion>
-    <txtProductVersion>v1.1</txtProductVersion>
+    <productVersion>2.0.0.0</productVersion>
+    <txtProductVersion>v2.0</txtProductVersion>
     <productName>Battleship Pirate ☠</productName>
     <companyName>Balázs Orbán</companyName>
     <internalName>Battleship Pirate ☠</internalName>

@@ -9,22 +9,45 @@
 <?import javafx.scene.control.Hyperlink?>
 
 
-<HBox id="h-box" prefHeight="640.0" prefWidth="1024.0" spacing="15" style="-fx-padding: 10px 10px 10px 10px" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GameController">
+<HBox id="h-box" prefHeight="650.0" prefWidth="1024.0" spacing="15" style="-fx-padding: 10px 10px 10px 10px" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GameController">
    <children>
-      <SplitPane id="split-pane" dividerPositions="0.14" orientation="VERTICAL" prefHeight="540.0" prefWidth="990">
+      <SplitPane id="split-pane" dividerPositions="0.07" orientation="VERTICAL" prefHeight="540.0" prefWidth="990">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="50.0" prefWidth="160.0">
+          <AnchorPane minHeight="48" prefHeight="48">
                <children>
-                  <TextField id="input" fx:id="inputField" layoutX="24.0" layoutY="24.0"/>
-                  <Button id="button" layoutX="240.0" layoutY="24.0" mnemonicParsing="false" defaultButton="true" onAction="#sendInput" text="Attack these coordinates!" />
-               	  <Label id="author" layoutX="620.0" layoutY="28.0">Battleship Pirate ☠ v1.1 by Balázs Orbán NTNU - 2017</Label>
-               	  <Label id="easter-egg" layoutX="28.0" layoutY="100.0">The kraken is a terrifying sea monster... 😉</Label>
+               <HBox layoutX="20" spacing="290" alignment="CENTER">
+                <Label id="title">Battleship Pirate ☠</Label>
+               	<HBox spacing="10" alignment="TOP_RIGHT">
+					<Button id="button" text="Retrieve" onAction="#save">
+						<tooltip>
+                        	<Tooltip text="Save"/>
+                        </tooltip>
+					</Button>
+					<Button id="button" text="Another day for a good fight!" onAction="#load">
+						<tooltip>
+                        	<Tooltip text="Load"/>
+                        </tooltip>
+					</Button>
+					<Button id="button" text="Parley" onAction="#reset">
+						<tooltip>
+                        	<Tooltip text="Reset"/>
+                        </tooltip>
+					</Button>
+				</HBox>              
+               </HBox>
+               <Label id="easter-egg" layoutX="250.0" layoutY="200.0">The kraken is a terrifying sea monster... 😉</Label>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <TextArea id="board" fx:id="board" layoutX="8.0" layoutY="16" prefHeight="320.0" prefWidth="320.0" />
-                  <TextArea id="console" fx:id="console" layoutX="340" layoutY="16" prefHeight="490.0" prefWidth="640.0" />
+                <TextField id="input" fx:id="inputField" layoutX="24.0" layoutY="364.0" prefWidth="284"/>
+                <Button id="button" layoutX="24.0" layoutY="404.0" prefWidth="284" mnemonicParsing="false" defaultButton="true" onAction="#sendInput" text="Attack these coordinates!" />
+                <TextArea id="board" fx:id="board" layoutX="8.0" layoutY="16" prefHeight="320.0" prefWidth="320.0" />
+                <TextArea id="console" fx:id="console" layoutX="340" layoutY="16" prefHeight="490.0" prefWidth="640.0" />
+	        	
+                <Hyperlink id="email" layoutX="5" layoutY="540">info@balazsorban.com</Hyperlink>
+                <Label id="author" layoutX="444" layoutY="540">Balázs Orbán - 2017</Label>
+                <Label id="version" layoutX="945" layoutY="540">v2.0</Label>
                </children>
             </AnchorPane>
         </items>
